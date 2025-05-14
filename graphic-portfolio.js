@@ -5,7 +5,7 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
-
+import { ItemCard } from "./item-card";
 /**
  * `graphic-portfolio`
  * 
@@ -48,14 +48,14 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: block;
+        display: flex;
         color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        background-color: #111111;
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+        display: flex;
+        gap: 24px;
       }
       h3 span {
         font-size: var(--graphic-portfolio-label-font-size, var(--ddd-font-size-s));
@@ -68,7 +68,8 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     return html`
 <div class="wrapper">
   <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <slot></slot>
+  <a href="https://google.com"  target="_blank" rel="noopener"><item-card title="Shadow Work" thumbnail="thumbnail.avif"></item-card></a>
+  <item-card title="Shadow Work" thumbnail="thumbnail.avif">aa</item-card>
 </div>`;
   }
 
