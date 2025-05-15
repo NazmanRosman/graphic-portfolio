@@ -7,6 +7,7 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import { ItemCard } from "./item-card";
 import { HeaderBar } from "./header-bar";
+import { ProjectPage } from "./project-page";
 /**
  * `graphic-portfolio`
  * 
@@ -48,26 +49,32 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   static get styles() {
     return [super.styles,
     css`
+      :host{
+        --bg-color: #111111;
+        --main-font: "Manrope", "Manrope Placeholder", sans-serif;
+        --max-width: 1200px;
+        --page-padding: 0 30px;
+      }
+      
       :host {
         display: block;
         color: var(--ddd-theme-primary);
-        background-color: #111111;
-        font-family: "Manrope", "Manrope Placeholder", sans-serif;
+        background-color: var(--bg-color);
+        font-family: var(--main-font);
         margin: auto;
         /* margin: 100px; */
         box-sizing: border-box;
         overflow: visible;
-
 
       }
       .wrapper {
         display: flex;
         flex-direction: column;
         
-        max-width: 1200px; 
+        max-width: var(--max-width); 
 
         margin: 0 auto ;
-        padding: 0 30px;
+        padding: var(--page-padding);
         overflow: visible;
 
         /* gap: 24px; */
@@ -84,7 +91,8 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
         font-family: "Inter", "Inter Placeholder", sans-serif;
         font-size: 50px;
         font-weight: 600;
-        color: #dcdcdc;
+        /* color: #dcdcdc; */
+        color: var(--main-bg-color);
         z-index: 0;
         
         position: fixed;
@@ -108,15 +116,15 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
      }
 
       .container-background{
-      width: 100%;
-      max-width: 1200px; 
+        width: 100%;
+        max-width: var(--max-width); 
 
-      /* left: 0; */
-      /* top: 100%; */
-      /* position: absolute; */
-      background-color: #111111;
-      z-index: 1;
-      /* background-color: #ffffff; */
+        /* left: 0; */
+        /* top: 100%; */
+        /* position: absolute; */
+        background-color: var(--bg-color);
+        z-index: 1;
+        /* background-color: #ffffff; */
        
       }
       .projects-header{
@@ -146,7 +154,7 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
         grid-template-columns: repeat(2, minmax(200px, 1fr));
         gap: 45px;
         justify-content: center;
-        max-width: 1200px; 
+        max-width: var(--max-width); 
 
         
       }
@@ -171,20 +179,20 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     return html`
 <div class="background">
   <div class="wrapper">
-  <header-bar> </header-bar>
+    <header-bar> </header-bar>
 
     <div class="title-container">
       <div class="title">
       Garima is a <em>product designer </em> who leverages her background in tech and UX to design experiences that are <em>inclusive</em> and  <em>playful</em>
       </div>  
     </div>  
-    
   </div>  
 </div>
 <div class="wrapper">
 
   <div class = "container-background">
-    <div class="projects-header">
+    <!-- <div class="projects-header"> -->
+
       <div class="latest-projects">LATEST PROJECTS</div>
       <div class="filters">
         <div class="filter">All</div>

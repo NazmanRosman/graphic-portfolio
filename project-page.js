@@ -7,15 +7,15 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `header-bar`
+ * `project-page`
  * 
  * @demo index.html
- * @element header-bar
+ * @element project-page
  */
-export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
+export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "header-bar";
+    return "project-page";
   }
 
   constructor() {
@@ -56,56 +56,13 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         
-        font-family: var(--ddd-font-navigation);
+        /* font-family: var(--ddd-font-navigation); */
         /* min-width: 400px; */
-        height: auto;
+        /* height: auto; */
 
       }
 
-      .container{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 10;
-        position: fixed;
-        top: 0px;
-        max-width: var(--max-width);
-        width: auto;
-        display: flex;
-        position: fixed;
-        left: 0;
-        right: 0;
-        margin: auto;
-        padding: 20px 30px 20px 30px;
-        background-color: #11111150;
-        font-family: var(--main-font);
-
-
-        
-        /* position: relative; */
-      }
-      .contact{
-        padding: 10px 30px;
-        height: 30px;
-        background: white;
-        color: black;
-        display: flex;
-        justify-content: center; /* centers horizontally */
-        align-items: center;     /* centers vertically */
-        border-radius: 30px;
-        font-size: 16px;
-        font-weight: 700;
-        right: 0;
-      }
-
-      .logo{
-        /* background-color: blue; */
-        height: 50px;
-        position: relative;
-        z-index: 10;
-      }
-      
-
+    
 
     `];
   }
@@ -113,9 +70,9 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="container">
-  <img class="logo" src="lib/components/man.png">
-  <div class="contact"> Contact</div>
+<div class="wrapper">
+    <header-bar></header-bar>
+
 </div>
 `;
   }
@@ -133,4 +90,4 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(HeaderBar.tag, HeaderBar);
+globalThis.customElements.define(ProjectPage.tag, ProjectPage);
