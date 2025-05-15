@@ -6,6 +6,7 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import { ItemCard } from "./item-card";
+import { HeaderBar } from "./header-bar";
 /**
  * `graphic-portfolio`
  * 
@@ -75,50 +76,6 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
       .background{
         /* background-image: url("lib/thumbnails/impactra.png"); */
         /* background-color: gray; */
-      }
-   
-      .head{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 10;
-        
-        position: fixed;
-        top: 0px;
-        max-width: 1200px;
-        width: auto;
-        display: flex;
-        position: fixed;
-        left: 0;
-        right: 0;
-        margin: auto;
-        padding: 20px 30px 20px 30px;
-        background-color: #11111150;
-
-        
-        /* position: relative; */
-      }
-      .contact{
-        padding: 10px 30px;
-        height: 30px;
-        background: white;
-        color: black;
-        display: flex;
-        justify-content: center; /* centers horizontally */
-        align-items: center;     /* centers vertically */
-        border-radius: 30px;
-        font-size: 16px;
-        font-weight: 700;
-        right: 0;
-      }
-
-      .logo{
-        /* background-color: blue; */
-        height: 50px;
-        position: relative;
-
-        z-index: 10;
-
       }
 
       .title{
@@ -214,10 +171,7 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     return html`
 <div class="background">
   <div class="wrapper">
-    <div class="head">
-      <img class="logo" src="lib/components/man.png">
-      <div class="contact"> Contact</div>
-    </div>
+  <header-bar> </header-bar>
 
     <div class="title-container">
       <div class="title">
