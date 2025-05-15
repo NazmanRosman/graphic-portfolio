@@ -59,7 +59,12 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
         /* min-width: 400px; */
         height: auto;
+        margin: 0;
 
+      }
+
+      *{
+        margin: 0;
       }
 
       .container{

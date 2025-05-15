@@ -55,14 +55,66 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        
-        /* font-family: var(--ddd-font-navigation); */
-        /* min-width: 400px; */
-        /* height: auto; */
-
+        /* line-height: 2rem; */
+        margin: 0;
+        --project-title-font-size: 28px;
+        --project-header-font-size: 64px;
+        --body-font-size: 20px;
+        font-size: var(--body-font-size);
       }
 
-    
+
+      .body{
+        display: flex;
+        flex-direction: column;
+        
+        max-width: var(--max-width); 
+        margin: 0 auto ;
+        padding: var(--page-padding);
+        /* overflow: visible; */
+      }
+      .hero {
+        margin-top: 130px;
+      }
+
+      .text{
+        max-width: 70%;
+      }
+      
+      .project-title{
+        margin: 0;
+        font-weight: 390;
+        font-size: var(--project-title-font-size);
+      }
+
+      .project-header{
+        margin: 40px 0;
+        font-weight: 300;
+        font-size: var(--project-header-font-size);
+
+      }
+      p{
+        line-height: 170%;
+      }
+
+      .details{
+        margin: 40px 0 80px 0;
+        display: grid;
+        /* border: 1px solid red; */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-content: center;
+        max-width: var(--max-width);
+        line-height: 170%; 
+      }
+      .detail-header{
+        color:rgb(128, 128, 128);
+      }
+
+      h3{
+        font-weight: 500;
+        margin-top: 50px;
+      }
 
     `];
   }
@@ -70,9 +122,56 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-    <header-bar></header-bar>
+      <header-bar></header-bar>
+<div class="hero body">
+  <div class="text">
+    
+    <h2 class="project-title">Rune Wars</h2>
+    <h1 class="project-header">The future of games.</h1>
+    <p>Gaming has long been defined by isolated screens.</p>
+    <p>Augmented reality, however, is upending all of that. The future of gaming is physical, social, and immersed in the real world.</p>
+    <p>Introducing Rune Wars, the first multi-player game built on Snap's Spectacles</p>
+    <p><b>- Winner of Snap Inc.'s Prize @ Immerse The Bay 2024 Hackathon -</b></p>
+  </div>
+</div>
 
+<div class="body">
+  <div class="text">
+
+    <div class="details">
+
+      <div class="detail-section">
+        <div class="detail-header">Date</div>
+        <div class="detail-text">November 2024</div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-header">Duration</div>
+        <div class="detail-text">36 hours</div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-header">Type</div>
+        <div class="detail-text">Design, prototyping, AR</div>
+      </div>
+      <div class="detail-section">
+        <div class="detail-header">Achievement</div>
+        <div class="detail-text">Winner of Snap Inc.'s Prize @ Immerse The Bay 2024 Hackathon</div>
+      </div>
+
+    </div>
+  </div>
+
+  <img src="lib/thumbnails/impactra.png" width="700px">
+  <div class="text">
+    <h3>A Vision of Spatial Play.</h3>
+    <p>Rune Wars is a simple multiplayer combat system helping people connect and exercise in a more engaging way.</p>
+
+    <p>Two people play as warriors battling for their honour.</p>
+
+    <p>Players shoot rune-enforced stones from one hand using a pinch gesture, and use the other hand to raise temporary walls from the ground using a pinch + drag gesture. These walls are destroyed after 5 seconds.</p>
+
+    <p>To win, a player reduce their opponent’s health to zero</p>
+  </div>
+  
 </div>
 `;
   }

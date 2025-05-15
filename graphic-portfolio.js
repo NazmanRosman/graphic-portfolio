@@ -72,7 +72,6 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
         flex-direction: column;
         
         max-width: var(--max-width); 
-
         margin: 0 auto ;
         padding: var(--page-padding);
         overflow: visible;
@@ -175,23 +174,34 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   // Lit render the HTML
+
+  render(){
+    return html`
+    
+    `
+  }
+
+  
   render() {
     return html`
 <div class="background">
   <div class="wrapper">
-    <header-bar> </header-bar>
 
+    <header-bar> </header-bar>
+    
     <div class="title-container">
       <div class="title">
       Garima is a <em>product designer </em> who leverages her background in tech and UX to design experiences that are <em>inclusive</em> and  <em>playful</em>
       </div>  
     </div>  
+  
   </div>  
 </div>
+
 <div class="wrapper">
 
   <div class = "container-background">
-    <!-- <div class="projects-header"> -->
+    <div class="projects-header">
 
       <div class="latest-projects">LATEST PROJECTS</div>
       <div class="filters">
@@ -200,19 +210,23 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
         <div class="filter">Grr</div>
         <div class="filter">Videos</div>
       </div>
+
     </div>
-      <div class="card-container">
-        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Impactra" thumbnail="impactra.png">aa</item-card></a>
-        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Splitem" thumbnail="splitem.png"></item-card></a>
-        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Hangin" thumbnail="hangin.png">aa</item-card></a>
-        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
-        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
-        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
-      </div>
+
+    <div class="card-container">
+      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Impactra" thumbnail="impactra.png">aa</item-card></a>
+      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Splitem" thumbnail="splitem.png"></item-card></a>
+      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Hangin" thumbnail="hangin.png">aa</item-card></a>
+      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
+      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
+      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
+    </div>
   </div>  
+  <project-page></project-page>
+
 
 </div>`;
-  }
+  } 
 
   /**
    * haxProperties integration via file reference
