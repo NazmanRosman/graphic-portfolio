@@ -21,7 +21,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "Title";
-    this.thumbnail = new URL(`/lib/thumbnail.avif`, import.meta.url),
+    this.thumbnail = "impactra.png",
     this.link = "https://google.com",
     this.t = this.t || {};
     this.t = {
@@ -45,7 +45,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
       ...super.properties,
       title: { type: String },
       thumbnail: {type: String},
-      link: {type: URL},
+      link: {type: String},
     };
   }
 
@@ -55,21 +55,28 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
+        
         font-family: var(--ddd-font-navigation);
+        /* min-width: 400px; */
+        height: auto;
+
       }
-      .thumbnail, .container{
-        width:584px;
-        height:448px; 
-        border-radius: 1.5%;
-      }
+
       .thumbnail{
         transition: 0.3s ease-out;
+        width: 100%;
+        height:448px; 
+        /* max-width:100px; */
+        border-radius: 1.5%;
         object-fit: cover;
       }
       .container{
         position: relative;
         background-color: black;
-        overflow: hidden
+        overflow: hidden;
+        border-radius: 1.5%;
+
+ 
       }
       .title{
         transition: opacity 0.3s ease-out;
@@ -103,6 +110,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
         opacity:0;
         border-radius: 6%
       }
+  
       .container:hover{
         .title{
           opacity: 1;
@@ -134,7 +142,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
   <img src=${this.getThumbnailUrl()} class="thumbnail">
   <div class="title">${this.title}</div>
   <div class="arrow arrow-box">
-  </div>    <img src="lib/arrow.png" class="arrow arrow-shape">
+  </div>    <img src="lib/components/arrow.png" class="arrow arrow-shape">
 
 
 </div>
@@ -142,7 +150,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   getThumbnailUrl(){
-    let url=new URL(`/lib/${this.thumbnail}`, import.meta.url)
+    let url=new URL(`/lib/thumbnails/${this.thumbnail}`, import.meta.url)
     return url;
   }
   /**

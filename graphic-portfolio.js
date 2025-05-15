@@ -48,15 +48,161 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: flex;
+        display: block;
         color: var(--ddd-theme-primary);
         background-color: #111111;
-        font-family: var(--ddd-font-navigation);
+        font-family: "Manrope", "Manrope Placeholder", sans-serif;
+        margin: auto;
+        /* margin: 100px; */
+        box-sizing: border-box;
+        overflow: visible;
+
+
       }
       .wrapper {
         display: flex;
-        gap: 24px;
+        flex-direction: column;
+        
+        max-width: 1200px; 
+
+        margin: 0 auto ;
+        padding: 0 30px;
+        overflow: visible;
+
+        /* gap: 24px; */
       }
+
+      .background{
+        /* background-image: url("lib/thumbnails/impactra.png"); */
+        /* background-color: gray; */
+      }
+   
+      .head{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        
+        position: fixed;
+        top: 0px;
+        max-width: 1200px;
+        width: auto;
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 20px 30px 20px 30px;
+        background-color: #11111150;
+
+        
+        /* position: relative; */
+      }
+      .contact{
+        padding: 10px 30px;
+        height: 30px;
+        background: white;
+        color: black;
+        display: flex;
+        justify-content: center; /* centers horizontally */
+        align-items: center;     /* centers vertically */
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 700;
+        right: 0;
+      }
+
+      .logo{
+        /* background-color: blue; */
+        height: 50px;
+        position: relative;
+
+        z-index: 10;
+
+      }
+
+      .title{
+       
+       /* top: 30%; */
+        font-family: "Inter", "Inter Placeholder", sans-serif;
+        font-size: 50px;
+        font-weight: 600;
+        color: #dcdcdc;
+        z-index: 0;
+        
+        position: fixed;
+        top: 50%;
+        /* left: 50%;   */
+        transform: translate(0, -50%);
+        max-width: 1000px; 
+        width: 70%;
+        letter-spacing: -0.5px;
+      }
+
+      .title em{
+        font-weight: 100; 
+        font-size: 55px;
+        font-family: 'DM Serif Display';
+        /* font-style: normal; */
+      }
+
+      .title-container{
+      height: 100vh;
+     }
+
+      .container-background{
+      width: 100%;
+      max-width: 1200px; 
+
+      /* left: 0; */
+      /* top: 100%; */
+      /* position: absolute; */
+      background-color: #111111;
+      z-index: 1;
+      /* background-color: #ffffff; */
+       
+      }
+      .projects-header{
+        display: flex;
+        justify-content: space-between;
+        margin: 50px 0;
+      }
+      .latest-projects{
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .filters{
+        display: flex;
+        gap: 16px;
+
+      }
+
+      .filter{
+        font-family: "Inter", "Inter Placeholder", sans-serif;
+        font-size: 16px;
+        color: rgb(153, 153, 153);
+      }
+      .card-container {
+        z-index: 1;
+        display: grid;
+        /* border: 1px solid red; */
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        gap: 45px;
+        justify-content: center;
+        max-width: 1200px; 
+
+        
+      }
+
+      item-card{
+        height: auto;
+        z-index: 1;
+
+      }
+      .item{
+        padding: 2em;
+      }
+
       h3 span {
         font-size: var(--graphic-portfolio-label-font-size, var(--ddd-font-size-s));
       }
@@ -66,10 +212,43 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
+<div class="background">
+  <div class="wrapper">
+    <div class="head">
+      <img class="logo" src="lib/components/man.png">
+      <div class="contact"> Contact</div>
+    </div>
+
+    <div class="title-container">
+      <div class="title">
+      Garima is a <em>product designer </em> who leverages her background in tech and UX to design experiences that are <em>inclusive</em> and  <em>playful</em>
+      </div>  
+    </div>  
+    
+  </div>  
+</div>
 <div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <a href="https://google.com"  target="_blank" rel="noopener"><item-card title="Shadow Work" thumbnail="thumbnail.avif"></item-card></a>
-  <item-card title="Shadow Work" thumbnail="thumbnail.avif">aa</item-card>
+
+  <div class = "container-background">
+    <div class="projects-header">
+      <div class="latest-projects">LATEST PROJECTS</div>
+      <div class="filters">
+        <div class="filter">All</div>
+        <div class="filter">Technology</div>
+        <div class="filter">Grr</div>
+        <div class="filter">Videos</div>
+      </div>
+    </div>
+      <div class="card-container">
+        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Impactra" thumbnail="impactra.png">aa</item-card></a>
+        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Splitem" thumbnail="splitem.png"></item-card></a>
+        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Hangin" thumbnail="hangin.png">aa</item-card></a>
+        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
+        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
+        <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
+      </div>
+  </div>  
+
 </div>`;
   }
 
