@@ -23,6 +23,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
     this.title = "Title";
     this.thumbnail = "impactra.png",
     this.link = "https://google.com",
+    this.tags =  [];
 
 
     this.t = this.t || {};
@@ -32,13 +33,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
 
       
     };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/graphic-portfolio.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+
   }
 
 
@@ -49,6 +44,8 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
       title: { type: String },
       thumbnail: {type: String},
       link: {type: String},
+      tags: { type: Array },
+
       
     };
   }

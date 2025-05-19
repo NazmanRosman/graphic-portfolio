@@ -110,7 +110,7 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     console.log(event.detail.currentView);
     if(event.detail.currentView){
       this.currentView=event.detail.currentView;
-      this.requestUpdate();
+      // this.requestUpdate();
     }
 
   }
