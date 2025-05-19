@@ -24,6 +24,10 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
     this.thumbnail = "impactra.png",
     this.link = "https://google.com",
     this.filtersList = new Set(),
+    this.filteredData = [];
+    this.data = [];
+    this.activeFilter = '';
+
 
     this.t = this.t || {};
     this.t = {
@@ -48,6 +52,9 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
       title: { type: String },
       thumbnail: {type: String},
       link: {type: String},
+      filteredData: { type: Array, reflect: true },
+
+
     };
   }
 
@@ -122,6 +129,11 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--graphic-portfolio-label-font-size, var(--ddd-font-size-s));
       }
+      .filter.active {
+        /* background-color: #007bff; */
+        /* color: white; */
+        font-weight: bold;
+      }
 
     `];
   }
@@ -139,7 +151,7 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
       
         <!-- print filters -->
       ${Array.from(this.filtersList).map((filter) => html`
-        <div @click="${this.updateFilter}" type="checkbox" name="filter" value="${filter}"  class="filter"> 
+        <div @click="${this.updateFilter}" type="checkbox" name="${filter}"  class="filter"> 
           ${this.capitalizeWords(filter)} 
         </div>
       `)}
@@ -149,24 +161,18 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
   </div>
 
   <div class="card-container">
-    <item-card class="card" title="Impactra" thumbnail="impactra.png"></item-card>
-    <item-card class="card" title="Splitem" thumbnail="splitem.png"></item-card>
-    <item-card class="card" title="Hangin" thumbnail="hangin.png"></item-card>
-    <item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card>
-    <item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card>
-    <item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif" ></item-card>
+
+    ${this.filteredData.map((item)=>{ return html`
+        <item-card class="card" 
+        title="${item.title}" 
+        thumbnail=${item.thumbnail}>
+      </item-card>
+      `})}
   </div>
 </div>  
 
 `;
   }
-//   render() {
-//     return html`
-
-
-
-// `;
-//   }
 
   capitalizeWords(sentence) {
     return sentence
@@ -189,15 +195,12 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
       //sort alphabetically
       this.data.sort((a, b) => a.title.localeCompare(b.title));
       this.filteredData = this.data; 
-      this.loading = false;
 
       //add tags to filters list (which is a *Set* to prevent dups)
       this.data.forEach((d) => {
         this.filtersList.add(d.tag);
       });          
       this.requestUpdate();
-      // Array.from(this.filtersList).map((filter) => console.log(filter))
-        // console.log(this.filtersList);
     })
     .catch(error => console.error('Error fetching the JSON:', error));
 
@@ -224,12 +227,28 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
     this.fetchData();
   }
 
-  updateFilter(){
-    
+  updateFilter(event){
+    this.activeFilter = event.target.getAttribute("name");
+    const filters = this.renderRoot.querySelectorAll('.filter');
+    filters.forEach(el => el.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    this.filterData();
   }
+  filterData(){
 
-
-
+    if(this.activeFilter === 'all'){
+      this.filteredData=this.data;
+    } else{
+      this.filteredData = [];
+      this.data.forEach((item)=>{
+        if(item.tag === this.activeFilter){ //check if filter includes item tag
+          this.filteredData.push(item);
+        }
+    })
+    
+    }
+  }
   /**
    * haxProperties integration via file reference
    */
