@@ -23,6 +23,8 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
     this.title = "Title";
     this.thumbnail = "impactra.png",
     this.link = "https://google.com",
+    this.filtersList = new Set(),
+
     this.t = this.t || {};
     this.t = {
       ...this.t,
@@ -58,17 +60,22 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
         
         /* min-width: 400px; */
         height: auto;
-        
+
 
       }
+      .wrapper{
+        background-color: white;
 
+      }
       .container-background{
         margin: auto;
         width: 100%;
         max-width: var(--max-width); 
         /* left: 0; */
         /* top: 100%; */
-        background-color: var(--bg-color);
+        /* background-color: var(--bg-color); */
+
+        
         position: relative
 
        
@@ -122,32 +129,52 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-
+          
 <div class = "container-background">
   <div class="projects-header">
 
     <div class="latest-projects">LATEST PROJECTS</div>
     <div class="filters">
       <div class="filter" name="all" @click="${this.updateFilter}">All</div>
-      <div class="filter" name="mobile" >Mobile</div>
-      <div class="filter" name="desktop">Desktop</div>
-      <div class="filter" name="others">Others</div>
+      
+        <!-- print filters -->
+      ${Array.from(this.filtersList).map((filter) => html`
+        <div @click="${this.updateFilter}" type="checkbox" name="filter" value="${filter}"  class="filter"> 
+          ${this.capitalizeWords(filter)} 
+        </div>
+      `)}
+
     </div>
 
   </div>
 
   <div class="card-container">
-    <a  @click="${this._handleClick}"><item-card class="card" title="Impactra" thumbnail="impactra.png"></item-card></a>
-    <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Splitem" thumbnail="splitem.png"></item-card></a>
-    <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Hangin" thumbnail="hangin.png"></item-card></a>
-    <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
-    <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
-    <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif" ></item-card></a>
+    <item-card class="card" title="Impactra" thumbnail="impactra.png"></item-card>
+    <item-card class="card" title="Splitem" thumbnail="splitem.png"></item-card>
+    <item-card class="card" title="Hangin" thumbnail="hangin.png"></item-card>
+    <item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card>
+    <item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card>
+    <item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif" ></item-card>
   </div>
 </div>  
 
 `;
   }
+//   render() {
+//     return html`
+
+
+
+// `;
+//   }
+
+  capitalizeWords(sentence) {
+    return sentence
+      .split(" ")                             
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1)) 
+      .join(" ");                             
+  }
+
   fetchData(){
     let jsonUrl = new URL('../lib/data.json', import.meta.url).href
     fetch(jsonUrl)
@@ -168,7 +195,9 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
       this.data.forEach((d) => {
         this.filtersList.add(d.tag);
       });          
-      console.log(this.filtersList);
+      this.requestUpdate();
+      // Array.from(this.filtersList).map((filter) => console.log(filter))
+        // console.log(this.filtersList);
     })
     .catch(error => console.error('Error fetching the JSON:', error));
 

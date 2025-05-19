@@ -137,12 +137,14 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="container">
-  <img src=${this.getThumbnailUrl()} class="thumbnail">
-  <div class="title">${this.title}</div>
-  <div class="arrow arrow-box"></div>
-  <img src="lib/components/arrow.png" class="arrow arrow-shape">
-</div>
+<a href="https://google.com"  target="_blank" rel="noopener">
+  <div class="container">
+    <img src=${this.getThumbnailUrl()} class="thumbnail">
+    <div class="title">${this.title}</div>
+    <div class="arrow arrow-box"></div>
+    <img src="lib/components/arrow.png" class="arrow arrow-shape">
+  </div>
+</a>
 `;
   }
 

@@ -56,7 +56,6 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     //add event listener to home page and landing page to change views
     if (this.shadowRoot.querySelector('landing-page')){
       const landingPage = this.shadowRoot.querySelector('landing-page');
-      // console.log(landingPage);
       landingPage.addEventListener('item-click', this._handleItemClick);
     } else if (this.shadowRoot.querySelector('project-page')){
       const projectPage = this.shadowRoot.querySelector('project-page');
@@ -93,7 +92,6 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   
   render() {
-    console.log(this.currentView);
     if(this.currentView==="home"){
       return html`
       <!-- <landing-page></landing-page> -->
@@ -109,7 +107,7 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
 
   //changes currentview to project page when card is clicked
   _handleItemClick(event){
-    console.log(event.detail.currentView);
+    // console.log(event.detail.currentView);
     if(event.detail.currentView){
       this.currentView=event.detail.currentView;
       // this.requestUpdate();

@@ -21,9 +21,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "Title";
-    this.thumbnail = "impactra.png",
-    this.link = "https://google.com",
-    this.filtersList = new Set(),
+
 
 
     this.t = this.t || {};
@@ -41,8 +39,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
-      thumbnail: {type: String},
-      link: {type: String},
+
     };
   }
 
