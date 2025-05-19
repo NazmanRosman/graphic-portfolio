@@ -23,6 +23,8 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
     this.title = "Title";
     this.thumbnail = "impactra.png",
     this.link = "https://google.com",
+
+
     this.t = this.t || {};
     this.t = {
       ...this.t,
@@ -39,6 +41,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
     });
   }
 
+
   // Lit reactive properties
   static get properties() {
     return {
@@ -46,6 +49,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
       title: { type: String },
       thumbnail: {type: String},
       link: {type: String},
+      
     };
   }
 
@@ -141,13 +145,12 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
 <div class="container">
   <img src=${this.getThumbnailUrl()} class="thumbnail">
   <div class="title">${this.title}</div>
-  <div class="arrow arrow-box">
-  </div>    <img src="lib/components/arrow.png" class="arrow arrow-shape">
-
-
+  <div class="arrow arrow-box"></div>
+  <img src="lib/components/arrow.png" class="arrow arrow-shape">
 </div>
 `;
   }
+
 
   getThumbnailUrl(){
     let url=new URL(`/lib/thumbnails/${this.thumbnail}`, import.meta.url)

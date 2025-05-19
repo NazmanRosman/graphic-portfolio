@@ -82,8 +82,9 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         right: 0;
         margin: auto;
         padding: 20px 30px 20px 30px;
-        background-color: #11111150;
+        /* background-color: #11111150; */
         font-family: var(--main-font);
+        /* background-color:rgba(0, 0, 0, 0.7) */
 
 
         
@@ -119,12 +120,21 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
 <div class="container">
-  <img class="logo" src="lib/components/man.png">
+  <img @click="${this._handleClick}" class="logo" src="lib/components/man.png">
   <div class="contact"> Contact</div>
 </div>
 `;
   }
 
+  //update page to home when logo clicked
+  _handleClick() {
+    const event = new CustomEvent('item-click', {
+      detail: { message: 'logo clicked!', currentView: "home"},
+      bubbles: true,   // Makes the event bubble up to the parent
+      composed: true,  // Allows the event to pass through shadow DOM boundaries
+    });
+    this.dispatchEvent(event);  // Dispatch the event
+  }
   getThumbnailUrl(){
     let url=new URL(`/lib/thumbnails/${this.thumbnail}`, import.meta.url)
     return url;

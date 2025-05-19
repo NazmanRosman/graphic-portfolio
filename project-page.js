@@ -23,6 +23,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
     this.title = "Title";
     this.thumbnail = "impactra.png",
     this.link = "https://google.com",
+    
     this.t = this.t || {};
     this.t = {
       ...this.t,
