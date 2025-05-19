@@ -180,7 +180,9 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
   getThumbnailUrl(){
     let url=new URL(`/lib/thumbnails/${this.thumbnail}`, import.meta.url)
     return url;
+    
   }
+
   /**
    * haxProperties integration via file reference
    */

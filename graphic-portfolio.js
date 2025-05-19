@@ -7,8 +7,9 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import { ItemCard } from "./src/item-card";
 import { HeaderBar } from "./src/header-bar";
-import { ProjectPage } from "./project-page";
+import { ProjectPage } from "./src/project-page";
 import { LandingPage } from "./src/landing-page";
+import { ProjectsView } from "./src/projects-view";
 /**
  * `graphic-portfolio`
  * 
@@ -95,7 +96,8 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     console.log(this.currentView);
     if(this.currentView==="home"){
       return html`
-      <landing-page></landing-page>
+      <!-- <landing-page></landing-page> -->
+      <projects-view></projects-view>
       `;
     } else if(this.currentView==="project"){
       return html`

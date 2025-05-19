@@ -23,6 +23,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
     this.title = "Title";
     this.thumbnail = "impactra.png",
     this.link = "https://google.com",
+    this.filtersList = new Set(),
 
 
     this.t = this.t || {};
@@ -55,7 +56,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
         /* min-width: 400px; */
         height: auto;
-
+        z-index: -1;
       }
 
     
@@ -77,6 +78,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
         background-attachment: fixed;
         background-size: cover;
         /* background-color: gray; */
+        
       }
       .background-opacity{
         background-color:rgba(0, 0, 0, 0.7)
@@ -85,22 +87,19 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
 
       .title{
        
-       /* top: 30%; */
         font-family: "Inter", "Inter Placeholder", sans-serif;
         font-size: 50px;
         font-weight: 600;
-        /* color: #dcdcdc; */
         color: var(--main-bg-color);
-        z-index: 0;
         
         position: fixed;
         top: 50%;
-        /* left: 50%;   */
         transform: translate(0, -50%);
         max-width: 1000px; 
         width: 70%;
         letter-spacing: -0.5px;
-        
+        z-index: 0;
+
       }
 
       .title em{
@@ -112,63 +111,14 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
 
       .title-container{
       height: 100vh;
+
      }
 
-      .container-background{
-        width: 100%;
-        max-width: var(--max-width); 
+     projects-view{
+      z-index: 10;
+     }
 
-        /* left: 0; */
-        /* top: 100%; */
-        /* position: absolute; */
-        background-color: var(--bg-color);
-        z-index: 1;
-       
-      }
-      .projects-header{
-        display: flex;
-        justify-content: space-between;
-        margin: 50px 0;
-      }
-      .latest-projects{
-        font-size: 18px;
-        font-weight: 600;
-      }
-      .filters{
-        display: flex;
-        gap: 16px;
-
-      }
-
-      .filter{
-        font-family: "Inter", "Inter Placeholder", sans-serif;
-        font-size: 16px;
-        color: rgb(153, 153, 153);
-      }
-      .card-container {
-        z-index: 1;
-        display: grid;
-        /* border: 1px solid red; */
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
-        gap: 45px;
-        justify-content: center;
-        max-width: var(--max-width); 
-
-        
-      }
-
-      item-card{
-        height: auto;
-        z-index: 1;
-
-      }
-      .item{
-        padding: 2em;
-      }
-
-      h3 span {
-        font-size: var(--graphic-portfolio-label-font-size, var(--ddd-font-size-s));
-      }
+      
 
     `];
   }
@@ -191,52 +141,14 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
     </div>  
   </div>
 </div>
+<projects-view class="projects"></projects-view>
 
-<div class="wrapper">
 
-  <div class = "container-background">
-    <div class="projects-header">
-
-      <div class="latest-projects">LATEST PROJECTS</div>
-      <div class="filters">
-        <div class="filter">All</div>
-        <div class="filter">Technology</div>
-        <div class="filter">Grr</div>
-        <div class="filter">Videos</div>
-      </div>
-
-    </div>
-
-    <div class="card-container">
-      <a  @click="${this._handleClick}"><item-card class="card" title="Impactra" thumbnail="impactra.png">aa</item-card></a>
-      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Splitem" thumbnail="splitem.png"></item-card></a>
-      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Hangin" thumbnail="hangin.png">aa</item-card></a>
-      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
-      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
-      <a href="https://google.com"  target="_blank" rel="noopener"><item-card class="card" title="Shadow Work" thumbnail="shadow-work.avif"></item-card></a>
-    </div>
-  </div>  
-
-</div>
 `;
   }
 
-  //update currentView to project when card is clicked
-  _handleClick() {
-    const event = new CustomEvent('item-click', {
-      detail: { message: 'card clicked!', currentView: "project"  },
-      bubbles: true,   // Makes the event bubble up to the parent
-      composed: true,  // Allows the event to pass through shadow DOM boundaries
-    });
-    // console.log(event);
-    
-    this.dispatchEvent(event);  // Dispatch the event
-  }
 
-  getThumbnailUrl(){
-    let url=new URL(`/lib/thumbnails/${this.thumbnail}`, import.meta.url)
-    return url;
-  }
+
   /**
    * haxProperties integration via file reference
    */
