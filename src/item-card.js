@@ -30,8 +30,6 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
     this.t = {
       ...this.t,
       title: "Title",
-
-      
     };
 
   }
