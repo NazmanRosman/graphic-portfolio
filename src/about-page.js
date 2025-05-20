@@ -33,7 +33,7 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
     this.registerLocalization({
       context: this,
       localesPath:
-        new URL("./locales/graphic-portfolio.ar.json", import.meta.url).href +
+        new URL("../locales/graphic-portfolio.ar.json", import.meta.url).href +
         "/../",
       locales: ["ar", "es", "hi", "zh"],
     });
