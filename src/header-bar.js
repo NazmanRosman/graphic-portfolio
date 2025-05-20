@@ -73,8 +73,7 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         z-index: 10;
         position: fixed;
         top: 0px;
-        /* max-width: var(--max-width); */
-        width: auto;
+        width: 100vw;
         display: flex;
         position: fixed;
         left: 0;

@@ -98,8 +98,8 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     if(this.currentView==="home"){
       return html`
-      <landing-page></landing-page>
-      <!-- <about-page></about-page> -->
+      <!-- <landing-page></landing-page> -->
+      <about-page></about-page>
       <!-- <project-page></project-page> -->
       <!-- <projects-view class="projects"></projects-view> -->
 

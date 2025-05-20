@@ -55,7 +55,10 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
         height: auto;
       }
 
-    
+      *{
+        box-sizing: border-box;
+      }
+
   
       .wrapper {
         display: flex;
@@ -98,6 +101,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
         width: 70%;
         letter-spacing: -0.5px;
         padding-left: 10px;
+        text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5); /* Shadow scales with font size */
 
       }
 

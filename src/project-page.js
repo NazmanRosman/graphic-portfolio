@@ -73,34 +73,32 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
       }
       p{
         line-height: 170%;
-        padding: 0 0 20px 0;
+        margin: 0 0 20px 0;
       }
 
 
-      .body{
+      .wrapper{
         display: flex;
         flex-direction: column;
         
         max-width: var(--max-width); 
         margin: 0 auto ;
+        margin-top: 130px;
         padding: var(--page-padding);
         /* overflow: visible; */
       }
-      .hero {
-        margin-top: 130px;
-      }
 
       .text{
-        max-width: 70%;
+        max-width: 840px;
       }
       
-      .project-title{
+      h2.project-title{
         margin: 0;
         font-weight: 390;
         font-size: var(--project-title-font-size);
       }
 
-      .project-header{
+      h1.project-header{
         margin: 40px 0;
         font-weight: 300;
         font-size: var(--project-header-font-size);
@@ -108,8 +106,8 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
       }
 
 
-      .details{
-        margin: 40px 0 80px 0;
+      .details-table{
+        margin: 40px 0 40px 0;
         display: grid;
         /* border: 1px solid red; */
         grid-template-columns: repeat(2, 1fr);
@@ -121,7 +119,33 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
       .detail-header{
         color:rgb(128, 128, 128);
       }
+      @media (max-width: 575.98px) {
+        img{
+          width: 100%;
+          height: auto;
+        }
+        .details-table{
+          grid-template-columns: 1fr;
+          font-size: 16px;
+          gap: 7px;
+          margin:0 0 20px 0;
 
+        }
+        h2.project-title{
+          font-size: 20px;
+        }
+        h1.project-header{
+          font-size: 36px;
+          margin: 20px 0;
+        }
+        p{
+          font-size: 16px;
+        }
+        .wrapper{
+          margin-top: 80px;
+        }
+
+      }
  
 
     `];
@@ -131,7 +155,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <header-bar></header-bar>
-<div class="hero body">
+<div class="wrapper">
   <div class="text">
     
     <h2 class="project-title">Rune Wars</h2>
@@ -141,12 +165,10 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
     <p>Introducing Rune Wars, the first multi-player game built on Snap's Spectacles</p>
     <p><b>- Winner of Snap Inc.'s Prize @ Immerse The Bay 2024 Hackathon -</b></p>
   </div>
-</div>
 
-<div class="body">
   <div class="text">
 
-    <div class="details">
+    <div class="details-table">
 
       <div class="detail-section">
         <div class="detail-header">Date</div>
