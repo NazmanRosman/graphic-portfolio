@@ -30,13 +30,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
 
       
     };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/graphic-portfolio.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+
   }
 
   // Lit reactive properties
