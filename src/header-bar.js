@@ -53,12 +53,17 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
         /* min-width: 400px; */
         height: auto;
-        margin: 0;
+        
 
       }
-
       *{
+        box-sizing: border-box;
+      }
+
+
+      ul{
         margin: 0;
+        padding: 0;
       }
 
       .container{
@@ -74,20 +79,15 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         position: fixed;
         left: 0;
         right: 0;
-        margin: auto;
-        margin: 30px 50px 30px 70px;
+        padding: 10px 50px 10px 50px;
+        height: 80px;
         /* background-color: #11111150; */
         font-family: var(--main-font);
-        /* background-color:rgba(0, 0, 0, 0.7) */
-
 
         
         /* position: relative; */
       }
       .right-side-item{
-        /* padding: 10px 30px;
-        height: 30px; */
-        /* background: white; */
         color: white;
         display: flex;
         justify-content: center; /* centers horizontally */
@@ -96,20 +96,85 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         font-size: 18px;
         font-weight: 500;
         right: 0;
+        font-family: var(--main-font);
+      }
+      
+      .hamburger{
+        width: 40px;
+        height: 40px;
+        display: none;
       }
 
       .logo{
         /* background-color: blue; */
-        height: 50px;
+        width: 70px;
         position: relative;
         z-index: 10;
       }
 
-      .right-side{
-      display: flex;
+      ul{
+        display: flex;
+        flex-direction: row;
         align-items: center;
         gap: 50px;
         font-size: 18px;
+      }
+      .nav-links{
+        transition: all 0.3s ease-in-out;
+
+      }
+
+      /* Extra small devices (phones) */
+      @media (max-width: 575.98px) {
+        /* Styles for phones */
+        .container{
+          font-size: 9px;
+          padding: 15px 0px;
+
+          background: var(--bg-color);
+
+        } 
+        .container{
+          flex-wrap: wrap;
+          height: auto;
+        }
+        .nav-links.active{
+          display: flex;
+        }
+        .nav-links{
+          display: none;
+          flex-direction: column;
+
+          padding: 1rem;
+          width: 100vw;
+          padding: 20px 0;
+          border-radius: 10px;
+        }
+        
+        .nav-links li{
+          font-size: 16px;
+
+        }
+        .hamburger{
+          display: block;
+          padding-right: 15px;
+
+        }
+        .logo{
+          width: 60px;
+          padding-left: 15px;
+        }
+        
+      }
+
+      /* Small devices (landscape phones, large phones) */
+      @media (min-width: 576px) and (max-width: 767.98px) {
+        /* Styles for small devices */
+      }
+
+      /* Medium devices (tablets) */
+      @media (min-width: 768px) and (max-width: 991.98px) {
+        /* Styles for tablets */
       }
       
 
@@ -117,25 +182,27 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
     `];
   }
 
+openHamburger(){
+  const navLinks = this.renderRoot.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+  console.log(navLinks.classList);
+}
+
   // Lit render the HTML
   render() {
     return html`
 <div class="container">
-  <img @click="${this._handleClick}" class="logo" src="lib/components/man.png">
-  <div class="right-side">
-    <div class="right-side-item"> 
-      Work
-    </div>
-    <div class="right-side-item"> 
-      Play
-    </div>
-    <div class="right-side-item">
-      About
-    </div>
-    <div class="right-side-item">
-      Resume
-    </div>
-  </div>
+  <img @click="${this._handleClick}" class="logo" src="lib/components/logo.svg" >
+  <img @click="${this.openHamburger}" class="hamburger" src="../lib/components/hamburger.svg" width="70px">
+
+  <ul class="nav-links">
+    <li class="right-side-item">Work</li>
+    <li class="right-side-item">Play</li>
+    <li class="right-side-item">About</li>
+    <li class="right-side-item">Resume</li>
+  </ul>
+  
+    
 </div>
 `;
   }

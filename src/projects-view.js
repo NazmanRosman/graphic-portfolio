@@ -66,26 +66,36 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
         display: block;
         
         /* min-width: 400px; */
-        height: auto;
+        /* height: auto; */
 
-        margin: var(--page-padding);
-
-      }
-      .wrapper{
-        background-color: white;
+        /* margin: var(--page-padding); */
+        width: 100%;
 
       }
+      *{
+        box-sizing: border-box;
+      }
+
+
       .container-background{
         margin: auto;
-        width: 100%;
         max-width: var(--max-width); 
         background-color: var(--bg-color);
+        /* background-color: gray; */
+        /* overflow: hidden; */
+        width: 100%;
+        padding: var(--page-padding);
+        min-height: 100vh;
+
+
+
     
       }
       .projects-header{
         display: flex;
         justify-content: space-between;
         padding: 50px 0;
+        max-width: 100%;
       }
       .latest-projects{
         font-size: 18px;
@@ -96,6 +106,7 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
       .filters{
         display: flex;
         gap: 16px;
+        flex-wrap: wrap;
 
       }
       .filters:hover{
@@ -114,6 +125,8 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
         grid-template-columns: repeat(2, minmax(200px, 1fr));
         gap: 45px;
         justify-content: center;
+        /* width: 100vw; */
+        overflow: hidden;
         max-width: var(--max-width); 
       }
 
@@ -127,6 +140,21 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
       }
       .filter.active {
         font-weight: bold;
+      }
+
+      @media (max-width: 575.98px) {
+        .projects-header{
+          flex-direction: column;
+          gap: 16px;
+          padding: 50px 0 20px 0;
+        }
+        .card-container {
+         grid-template-columns: 1fr;
+         gap: 25px;
+
+        }
+        .container-background{
+        }
       }
 
     `];
@@ -153,7 +181,6 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
     </div>
 
   </div>
-
   <div class="card-container">
 
     ${this.filteredData.map((item)=>{ return html`
@@ -162,10 +189,43 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
         thumbnail=${item.thumbnail}>
       </item-card>
       `})}
-  </div>
-</div>  
+    </div> 
+</div> 
 
 `;
+//   render() {
+//     return html`
+          
+// <div class = "container-background">
+//   <div class="projects-header">
+
+//     <div class="latest-projects">LATEST PROJECTS</div>
+//     <div class="filters">
+//       <div class="filter active" name="all" @click="${this.updateFilter}">All</div>
+      
+//         <!-- print filters -->
+//       ${Array.from(this.filtersList).map((filter) => html`
+//         <div @click="${this.updateFilter}" type="checkbox" name="${filter}"  class="filter"> 
+//           ${this.capitalizeWords(filter)} 
+//         </div>
+//       `)}
+
+//     </div>
+
+//   </div>
+
+//   <div class="card-container">
+
+//     ${this.filteredData.map((item)=>{ return html`
+//         <item-card class="card" 
+//         title="${item.title}" 
+//         thumbnail=${item.thumbnail}>
+//       </item-card>
+//       `})}
+//   </div>
+// </div>  
+
+// `;
   }
 
   capitalizeWords(sentence) {

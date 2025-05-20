@@ -60,7 +60,14 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
         --project-header-font-size: 64px;
         --body-font-size: 20px;
         font-size: var(--body-font-size);
+        
       }
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
       h1, p{
         margin: 0;
         padding: 0;
@@ -79,6 +86,7 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
         justify-content: center;
         
         gap: 50px;
+        
       }
       .text{
         display: flex;
@@ -104,15 +112,7 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
         line-height: 150%;
       }
 
-      .links{
-        margin: 20px 0;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        
-      }
-
-      .links p{
+      .socials p{
         color: white;
         opacity: 0.9;
         font-weight: 700;
@@ -121,12 +121,55 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
 
 
       .socials{
-        margin-bottom: 5px;
+        margin-top: 20px;
         display: flex;
         flex-wrap: wrap;
         column-gap: 35px;
+        row-gap: 15px;
 
       }
+
+      @media (max-width: 575.98px) {
+        .hero {
+          flex-direction: column;
+          gap: 20px;
+          padding: 0;
+          top: 110px;
+          transform: translateY(0);
+        }
+        .text{
+          font-size: 16px;
+          max-width: 90%;
+        }
+        img{
+          height: 200px;
+          width: 200px;
+        }
+        h1{
+        font-size: 30px;
+        margin-bottom: 15px;
+        }
+        p{
+          font-size: 16px;
+          letter-spacing: 0.6px;
+          color: #FFFFFF;
+          opacity: 0.8;
+          line-height: 150%;
+        }
+      
+
+
+      .socials{
+        margin-bottom: 5px;
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .links p{
+        font-size: 16px;
+      }
+    }
 
 
 
@@ -138,31 +181,33 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
 <header-bar></header-bar>
-<div class="hero">
-    <div class="image">
-      <img src="../lib/components/headshot.webp">
-    </div>
-    <div class="text">  
-      <div class="header">
-        <h1>Hi, I'm Mortiz</h1>
-      </div>
-      <div class="description">
-        <p>I‘m a UX/UI Designer with over six years experience conceptualizing and crafting digital products, helping businesses and non-profits expand their capacity for impact 🚀 As a tutor at CareerFoundry*, I help aspiring UX design students build a career they love by giving feedback and sharing my knowledge and passion for design, technology, and the field of education 🎓</p>
-      </div>
-      <div class="links">
-        <div class="socials">
-          <p>LinkedIn</p>
-          <p>Github</p>
-          <p>Instagram</p>
-          <p>Facebook</p>
-       
-        </div>
-        <p>mortiz.doe@gmail.com</p>
 
-     
-      </div>
+<div class="hero">
+  <div class="image">
+    <img src="../lib/components/headshot.webp">
+  </div>
+  <div class="text">  
+    <div class="header">
+      <h1>Hi, I'm Mortiz</h1>
     </div>
+    <div class="description">
+      <p>I‘m a UX/UI Designer with over six years experience conceptualizing and crafting digital products, helping businesses and non-profits expand their capacity for impact 🚀 As a tutor at CareerFoundry*, I help aspiring UX design students build a career they love by giving feedback and sharing my knowledge and passion for design, technology, and the field of education 🎓</p>
+    </div>
+    <div class="links">
+      <div class="socials">
+        <p>LinkedIn</p>
+        <p>Github</p>
+        <p>Instagram</p>
+        <p>Facebook</p>
+        <p>mortiz.doe@gmail.com</p>
+      </div>
+      
+
+    
+    </div>
+  </div>
 </div>
+
  
 
 `;

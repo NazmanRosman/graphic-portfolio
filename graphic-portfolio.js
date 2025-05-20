@@ -74,8 +74,11 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
         --bg-color: #111111;
         --main-font: "Manrope", "Manrope Placeholder", sans-serif;
         --max-width: 1200px;
-        --page-padding: 0 30px;
+        --page-padding: 0 15px;
+    
+    
       }
+ 
       
       :host {
         display: block;
@@ -95,9 +98,10 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     if(this.currentView==="home"){
       return html`
-      <!-- <landing-page></landing-page> -->
+      <landing-page></landing-page>
       <!-- <about-page></about-page> -->
-      <project-page></project-page>
+      <!-- <project-page></project-page> -->
+      <!-- <projects-view class="projects"></projects-view> -->
 
       `;
     } else if(this.currentView==="project"){

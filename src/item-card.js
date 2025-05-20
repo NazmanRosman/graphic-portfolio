@@ -88,6 +88,8 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
         color: white;
         opacity: 0;
         font-weight: 500;
+        text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+
         
       }
       .arrow{
@@ -129,7 +131,32 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
         }
       }
 
-    
+      @media (max-width: 575.98px) {
+        .title{
+          opacity: 1;
+        }
+        .thumbnail{
+          opacity: 0.5;
+          transform: scale(1.1);
+          height:300px; 
+
+        }
+        .title{
+          left: 24px;
+        }
+
+        .arrow-shape{
+          opacity: 1;
+          transform: scale(0.3) rotate(0);
+          right:24px;
+        }
+        .arrow-box{
+          opacity: 0.3;
+          right:24px;
+        }
+      }
+      
+
 
     `];
   }

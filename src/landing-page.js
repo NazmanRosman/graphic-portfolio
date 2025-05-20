@@ -74,10 +74,13 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
         background-attachment: fixed;
         background-size: cover;
         /* background-color: gray; */
+        width: 100%;
         
       }
       .background-opacity{
-        background-color:rgba(0, 0, 0, 0.7)
+        background-color:rgba(0, 0, 0, 0.7);
+        width: 100%;
+
 
       }
 
@@ -94,6 +97,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
         max-width: 1000px; 
         width: 70%;
         letter-spacing: -0.5px;
+        padding-left: 10px;
 
       }
 
@@ -115,8 +119,24 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
       position: relative;
       z-index: 2;
      }
-
+     @media (max-width: 575.98px) {
+      /* Styles for phones */
+      .title{
+        font-size: 35px;
+        max-width: 1000px; 
+        width: 90%;
+        letter-spacing: -0.5px;
+        /* top: 40%; */
+      }
+      .title em{
+        
+        font-size: 40px;
+        
+      }
       
+     }
+
+
 
     `];
   }
