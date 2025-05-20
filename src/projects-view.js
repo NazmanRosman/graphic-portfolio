@@ -68,6 +68,7 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
         /* min-width: 400px; */
         height: auto;
 
+        margin: var(--page-padding);
 
       }
       .wrapper{
@@ -78,14 +79,8 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
         margin: auto;
         width: 100%;
         max-width: var(--max-width); 
-        /* left: 0; */
-        /* top: 100%; */
-        /* background-color: var(--bg-color); */
-
-        
-        position: relative
-
-       
+        background-color: var(--bg-color);
+    
       }
       .projects-header{
         display: flex;
@@ -94,11 +89,17 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
       }
       .latest-projects{
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 500;
+        letter-spacing: 1.7px;
+
       }
       .filters{
         display: flex;
         gap: 16px;
+
+      }
+      .filters:hover{
+        cursor: pointer;
 
       }
 
@@ -114,24 +115,17 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
         gap: 45px;
         justify-content: center;
         max-width: var(--max-width); 
-
-        
       }
 
       item-card{
         height: auto;
+      }
 
-      }
-      .item{
-        padding: 2em;
-      }
 
       h3 span {
         font-size: var(--graphic-portfolio-label-font-size, var(--ddd-font-size-s));
       }
       .filter.active {
-        /* background-color: #007bff; */
-        /* color: white; */
         font-weight: bold;
       }
 
@@ -147,7 +141,7 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
 
     <div class="latest-projects">LATEST PROJECTS</div>
     <div class="filters">
-      <div class="filter" name="all" @click="${this.updateFilter}">All</div>
+      <div class="filter active" name="all" @click="${this.updateFilter}">All</div>
       
         <!-- print filters -->
       ${Array.from(this.filtersList).map((filter) => html`

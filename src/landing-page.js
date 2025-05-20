@@ -53,7 +53,6 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
         /* min-width: 400px; */
         height: auto;
-        z-index: -1;
       }
 
     
@@ -95,7 +94,6 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
         max-width: 1000px; 
         width: 70%;
         letter-spacing: -0.5px;
-        z-index: 0;
 
       }
 
@@ -108,11 +106,14 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
 
       .title-container{
       height: 100vh;
+      position: relative;
+      z-index: 1;
 
      }
 
      projects-view{
-      z-index: 10;
+      position: relative;
+      z-index: 2;
      }
 
       

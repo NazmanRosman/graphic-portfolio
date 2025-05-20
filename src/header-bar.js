@@ -68,14 +68,14 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         z-index: 10;
         position: fixed;
         top: 0px;
-        max-width: var(--max-width);
+        /* max-width: var(--max-width); */
         width: auto;
         display: flex;
         position: fixed;
         left: 0;
         right: 0;
         margin: auto;
-        padding: 20px 30px 20px 30px;
+        margin: 30px 50px 30px 70px;
         /* background-color: #11111150; */
         font-family: var(--main-font);
         /* background-color:rgba(0, 0, 0, 0.7) */
@@ -84,17 +84,17 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         
         /* position: relative; */
       }
-      .contact{
-        padding: 10px 30px;
-        height: 30px;
-        background: white;
-        color: black;
+      .right-side-item{
+        /* padding: 10px 30px;
+        height: 30px; */
+        /* background: white; */
+        color: white;
         display: flex;
         justify-content: center; /* centers horizontally */
         align-items: center;     /* centers vertically */
         border-radius: 30px;
-        font-size: 16px;
-        font-weight: 700;
+        font-size: 18px;
+        font-weight: 500;
         right: 0;
       }
 
@@ -103,6 +103,13 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         height: 50px;
         position: relative;
         z-index: 10;
+      }
+
+      .right-side{
+      display: flex;
+        align-items: center;
+        gap: 50px;
+        font-size: 18px;
       }
       
 
@@ -115,7 +122,20 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
     return html`
 <div class="container">
   <img @click="${this._handleClick}" class="logo" src="lib/components/man.png">
-  <div class="contact"> Contact</div>
+  <div class="right-side">
+    <div class="right-side-item"> 
+      Work
+    </div>
+    <div class="right-side-item"> 
+      Play
+    </div>
+    <div class="right-side-item">
+      About
+    </div>
+    <div class="right-side-item">
+      Resume
+    </div>
+  </div>
 </div>
 `;
   }

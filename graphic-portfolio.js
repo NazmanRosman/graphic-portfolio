@@ -10,6 +10,7 @@ import { HeaderBar } from "./src/header-bar";
 import { ProjectPage } from "./src/project-page";
 import { LandingPage } from "./src/landing-page";
 import { ProjectsView } from "./src/projects-view";
+import { AboutPage } from "./src/about-page";
 /**
  * `graphic-portfolio`
  * 
@@ -95,7 +96,9 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     if(this.currentView==="home"){
       return html`
       <!-- <landing-page></landing-page> -->
-      <projects-view></projects-view>
+      <!-- <about-page></about-page> -->
+      <project-page></project-page>
+
       `;
     } else if(this.currentView==="project"){
       return html`

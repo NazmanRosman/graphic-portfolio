@@ -21,8 +21,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "Title";
-    this.thumbnail = "impactra.png",
-    this.link = "https://google.com",
+    
     
     this.t = this.t || {};
     this.t = {
@@ -45,8 +44,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
-      thumbnail: {type: String},
-      link: {type: String},
+      
     };
   }
 
@@ -62,6 +60,20 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
         --project-header-font-size: 64px;
         --body-font-size: 20px;
         font-size: var(--body-font-size);
+      }
+
+      h1, p, h2, h3{
+        margin: 0;
+      }
+      h3{
+        font-weight: 500;
+        margin-top: 50px;
+        padding: 0 0 20px 0;
+
+      }
+      p{
+        line-height: 170%;
+        padding: 0 0 20px 0;
       }
 
 
@@ -94,9 +106,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
         font-size: var(--project-header-font-size);
 
       }
-      p{
-        line-height: 170%;
-      }
+
 
       .details{
         margin: 40px 0 80px 0;
@@ -112,10 +122,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
         color:rgb(128, 128, 128);
       }
 
-      h3{
-        font-weight: 500;
-        margin-top: 50px;
-      }
+ 
 
     `];
   }
