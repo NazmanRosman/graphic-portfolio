@@ -87,9 +87,9 @@ export class GlossyPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     if(this.currentView==="home"){
       return html`
-      <!-- <glossy-portflio-home></glossy-portflio-home> -->
+      <glossy-portflio-home></glossy-portflio-home>
       <!-- <glossy-portfolio-about></glossy-portfolio-about> -->
-      <glossy-portflio-page></glossy-portflio-page>
+      <!-- <glossy-portflio-page></glossy-portflio-page> -->
       <!-- <glossy-portflio-grid class="projects"></glossy-portflio-grid> -->
 
       `;

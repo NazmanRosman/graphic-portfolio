@@ -160,7 +160,7 @@ export class GlossyPortflioGrid extends DDDSuper(I18NMixin(LitElement)) {
       
         <!-- print filters -->
       ${Array.from(this.filtersList).map((filter) => html`
-        <button @click="${this.updateFilter}" type="checkbox" name="${filter}"  class="filter"> 
+        <button @click="${this.updateFilter}" name="${filter}"  class="filter"> 
           ${this.capitalizeWords(filter)} 
       </button>
       `)}
