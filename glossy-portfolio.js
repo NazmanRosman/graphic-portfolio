@@ -5,11 +5,11 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
-import { ItemCard } from "./src/item-card";
-import { HeaderBar } from "./src/header-bar";
-import { ProjectPage } from "./src/project-page";
-import { LandingPage } from "./src/landing-page";
-import { ProjectsView } from "./src/projects-view";
+import { GlossyPortflioCard } from "./src/glossy-portflio-card";
+import { GlossyPortfolioHeader } from "./src/glossy-portfolio-header";
+import { GlossyPortflioPage } from "./src/glossy-portfolio-page";
+import { GlossyPortflioHome } from "./src/glossy-portfolio-home";
+import { GlossyPortflioGrid } from "./src/glossy-portfolio-grid";
 import { GlossyPortfolioAbout } from "./src/glossy-portfolio-about";
 /**
  * `glossy-portfolio`
@@ -87,10 +87,10 @@ export class GlossyPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     if(this.currentView==="home"){
       return html`
-      <!-- <landing-page></landing-page> -->
+      <!-- <glossy-portflio-home></glossy-portflio-home> -->
       <!-- <glossy-portfolio-about></glossy-portfolio-about> -->
-      <project-page></project-page>
-      <!-- <projects-view class="projects"></projects-view> -->
+      <glossy-portflio-page></glossy-portflio-page>
+      <!-- <glossy-portflio-grid class="projects"></glossy-portflio-grid> -->
 
       `;
     } 

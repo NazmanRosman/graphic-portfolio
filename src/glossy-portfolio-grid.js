@@ -7,15 +7,15 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `projects-view`
+ * `glossy-portflio-grid`
  * 
  * @demo index.html
- * @element projects-view
+ * @element glossy-portflio-grid
  */
-export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
+export class GlossyPortflioGrid extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "projects-view";
+    return "glossy-portflio-grid";
   }
 
   constructor() {
@@ -115,7 +115,7 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
         max-width: var(--max-width); 
       }
 
-      item-card{
+      glossy-portflio-card{
         height: auto;
       }
 
@@ -171,10 +171,10 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
   <div class="card-container">
 
     ${this.filteredData.map((item)=>{ return html`
-        <item-card class="card" 
+        <glossy-portflio-card class="card" 
         title="${item.title}" 
         thumbnail=${item.thumbnail}>
-      </item-card>
+      </glossy-portflio-card>
       `})}
     </div> 
 </div> 
@@ -253,4 +253,4 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(ProjectsView.tag, ProjectsView);
+globalThis.customElements.define(GlossyPortflioGrid.tag, GlossyPortflioGrid);

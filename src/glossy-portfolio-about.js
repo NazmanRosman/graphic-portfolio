@@ -174,7 +174,7 @@ export class GlossyPortfolioAbout extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<header-bar></header-bar>
+<glossy-portfolio-header></glossy-portfolio-header>
 
 <div class="hero">
   <div class="image">

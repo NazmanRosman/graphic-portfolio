@@ -7,15 +7,15 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `header-bar`
+ * `glossy-portfolio-header`
  * 
  * @demo index.html
- * @element header-bar
+ * @element glossy-portfolio-header
  */
-export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
+export class GlossyPortfolioHeader extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "header-bar";
+    return "glossy-portfolio-header";
   }
 
   constructor() {
@@ -90,4 +90,4 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(HeaderBar.tag, HeaderBar);
+globalThis.customElements.define(GlossyPortfolioHeader.tag, GlossyPortfolioHeader);

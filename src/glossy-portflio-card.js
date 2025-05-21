@@ -7,15 +7,15 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `item-card`
+ * `glossy-portflio-card`
  * 
  * @demo index.html
- * @element item-card
+ * @element glossy-portflio-card
  */
-export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
+export class GlossyPortflioCard extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "item-card";
+    return "glossy-portflio-card";
   }
 
   constructor() {
@@ -188,4 +188,4 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(ItemCard.tag, ItemCard);
+globalThis.customElements.define(GlossyPortflioCard.tag, GlossyPortflioCard);

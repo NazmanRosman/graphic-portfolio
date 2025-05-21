@@ -7,15 +7,15 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `landing-page`
+ * `glossy-portflio-home`
  * 
  * @demo index.html
- * @element landing-page
+ * @element glossy-portflio-home
  */
-export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
+export class GlossyPortflioHome extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "landing-page";
+    return "glossy-portflio-home";
   }
 
   constructor() {
@@ -119,7 +119,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
 
      }
 
-     projects-view{
+     glossy-portflio-grid{
       position: relative;
       z-index: 2;
      }
@@ -155,7 +155,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
   <div class="background-opacity">
     <div class="wrapper">
 
-      <header-bar> </header-bar>
+      <glossy-portfolio-header> </glossy-portfolio-header>
       
       <div class="title-container">
         <div class="title">
@@ -166,7 +166,7 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
     </div>  
   </div>
 </div>
-<projects-view class="projects"></projects-view>
+<glossy-portflio-grid class="projects"></glossy-portflio-grid>
 
 `;
   }
@@ -182,4 +182,4 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(LandingPage.tag, LandingPage);
+globalThis.customElements.define(GlossyPortflioHome.tag, GlossyPortflioHome);

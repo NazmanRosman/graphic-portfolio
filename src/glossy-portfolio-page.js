@@ -7,15 +7,15 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `project-page`
+ * `glossy-portflio-page`
  * 
  * @demo index.html
- * @element project-page
+ * @element glossy-portflio-page
  */
-export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
+export class GlossyPortflioPage extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "project-page";
+    return "glossy-portflio-page";
   }
 
   constructor() {
@@ -138,9 +138,8 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
           font-size: 16px;
         }
         .wrapper{
-          margin-top: 80px;
           padding: var(--mobile-page-padding);
-
+          padding-top: 100px;
         }
 
       }
@@ -152,7 +151,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-      <header-bar></header-bar>
+      <glossy-portfolio-header></glossy-portfolio-header>
 <div class="wrapper">
   <div class="text">
     
@@ -215,4 +214,4 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(ProjectPage.tag, ProjectPage);
+globalThis.customElements.define(GlossyPortflioPage.tag, GlossyPortflioPage);
