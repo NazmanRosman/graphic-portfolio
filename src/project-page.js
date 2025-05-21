@@ -54,6 +54,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
         --project-header-font-size: 64px;
         --body-font-size: 20px;
         font-size: var(--body-font-size);
+        background-color: var(--bg-color);
       }
 
       h1, p, h2, h3{
@@ -77,8 +78,9 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
         
         max-width: var(--max-width); 
         margin: 0 auto ;
-        margin-top: 130px;
         padding: var(--page-padding);
+        padding-top: 130px;
+
         /* overflow: visible; */
       }
 
@@ -137,6 +139,8 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
         }
         .wrapper{
           margin-top: 80px;
+          padding: var(--mobile-page-padding);
+
         }
 
       }
@@ -200,11 +204,7 @@ export class ProjectPage extends DDDSuper(I18NMixin(LitElement)) {
 `;
   }
 
-  getThumbnailUrl(){
-    let url=new URL(`/lib/thumbnails/${this.thumbnail}`, import.meta.url)
-    return url;
-    
-  }
+
 
   /**
    * haxProperties integration via file reference

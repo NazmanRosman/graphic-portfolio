@@ -155,7 +155,6 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
           right:24px;
         }
       }
-      
 
 
     `];
@@ -166,7 +165,7 @@ export class ItemCard extends DDDSuper(I18NMixin(LitElement)) {
     return html`
 <a href="https://google.com"  target="_blank" rel="noopener">
   <div class="container">
-    <img src=${this.getThumbnailUrl()} class="thumbnail">
+    <img src=${`/lib/thumbnails/${this.thumbnail}`} class="thumbnail">
     <div class="title">${this.title}</div>
     <div class="arrow arrow-box"></div>
     <img src="lib/components/arrow.png" class="arrow arrow-shape">

@@ -53,13 +53,11 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
         /* min-width: 400px; */
         height: auto;
-        
-
       }
+
       *{
         box-sizing: border-box;
       }
-
 
       ul{
         margin: 0;
@@ -78,26 +76,21 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         position: fixed;
         left: 0;
         right: 0;
-        padding: 10px 50px 10px 50px;
+        padding: 30px 50px 10px 50px;
         height: 80px;
         /* background-color: #11111150; */
-        font-family: var(--main-font);
-
-        
+        font-family: var(--main-font);  
         /* position: relative; */
       }
-      .right-side-item{
-        color: white;
-        display: flex;
-        justify-content: center; /* centers horizontally */
-        align-items: center;     /* centers vertically */
-        border-radius: 30px;
+      
+
+      .nav-links li{
         font-size: 18px;
         font-weight: 500;
-        right: 0;
         font-family: var(--main-font);
+
       }
-      
+    
       .hamburger{
         width: 40px;
         height: 40px;
@@ -117,10 +110,18 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
         align-items: center;
         gap: 50px;
         font-size: 18px;
+        list-style: none;
       }
       .nav-links{
         transition: all 0.3s ease-in-out;
 
+      }
+      a{
+        all: unset;
+      }
+      button{
+        all: unset;
+        cursor: pointer;
       }
 
       /* Extra small devices (phones) */
@@ -144,9 +145,9 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
           display: none;
           flex-direction: column;
 
-          padding: 1rem;
+          gap: 0px;
           width: 100vw;
-          padding: 20px 0;
+          padding: 20px 0 0 0;
           border-radius: 10px;
         }
         
@@ -163,6 +164,23 @@ export class HeaderBar extends DDDSuper(I18NMixin(LitElement)) {
           width: 60px;
           padding-left: 15px;
         }
+   
+        li, a.right-side-item{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 100vw;
+          /* background-color:blue; */
+          text-align: center; /* Centers the text horizontally */
+          height: 80px;
+        }
+
+        a.right-side-item:active, a.right-side-item:hover{
+          background-color: #1d1d1d;
+          text-decoration: none; /* Ensures underline is removed on hover */
+
+        }
+        
         
       }
 
@@ -191,14 +209,15 @@ openHamburger(){
   render() {
     return html`
 <div class="container">
-  <img @click="${this._handleClick}" class="logo" src="lib/components/logo.svg" >
-  <img @click="${this.openHamburger}" class="hamburger" src="../lib/components/hamburger.svg" width="70px">
-
+  <img class="logo" src="lib/components/logo.svg" >
+  <button>
+    <img @click="${this.openHamburger}" class="hamburger" src="../lib/components/hamburger.svg" width="70px">
+  </button>
   <ul class="nav-links">
-    <li class="right-side-item">Work</li>
-    <li class="right-side-item">Play</li>
-    <li class="right-side-item">About</li>
-    <li class="right-side-item">Resume</li>
+    <li><a class="right-side-item"><div clas="link">Work</div></a></li>
+    <li><a class="right-side-item"><div clas="link">Play</div></a></li>
+    <li><a class="right-side-item"><div clas="link">About</div></a></li>
+    <li><a class="right-side-item"><div clas="link">Resume</div></a></li>
   </ul>
   
     
@@ -206,19 +225,8 @@ openHamburger(){
 `;
   }
 
-  //update page to home when logo clicked
-  _handleClick() {
-    const event = new CustomEvent('item-click', {
-      detail: { message: 'logo clicked!', currentView: "home"},
-      bubbles: true,   // Makes the event bubble up to the parent
-      composed: true,  // Allows the event to pass through shadow DOM boundaries
-    });
-    this.dispatchEvent(event);  // Dispatch the event
-  }
-  getThumbnailUrl(){
-    let url=new URL(`/lib/thumbnails/${this.thumbnail}`, import.meta.url)
-    return url;
-  }
+
+
   /**
    * haxProperties integration via file reference
    */

@@ -27,7 +27,6 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     super();
     this.title = "";
     this.currentView = "home";
-    this._handleItemClick = this._handleItemClick.bind(this); // Bind the handler
 
 
     this.t = this.t || {};
@@ -52,18 +51,7 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
       currentView: { type: String },
     };
   }
-  updated(changedProperties){
-    
-    //add event listener to home page and landing page to change views
-    if (this.shadowRoot.querySelector('landing-page')){
-      const landingPage = this.shadowRoot.querySelector('landing-page');
-      landingPage.addEventListener('item-click', this._handleItemClick);
-    } else if (this.shadowRoot.querySelector('project-page')){
-      const projectPage = this.shadowRoot.querySelector('project-page');
-      projectPage.addEventListener('item-click', this._handleItemClick);
-    }
-    
-  }
+
 
 
   // Lit scoped styles
@@ -74,7 +62,8 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
         --bg-color: #111111;
         --main-font: "Manrope", "Manrope Placeholder", sans-serif;
         --max-width: 1200px;
-        --page-padding: 0 15px;
+        --page-padding: 0 25px;
+        --mobile-page-padding: 0 15px;
     
     
       }
@@ -84,9 +73,9 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
         display: block;
         color: var(--ddd-theme-primary);
         background-color: var(--bg-color);
+        background-color: var(--bg-color);
         font-family: var(--main-font);
         margin: auto;
-        /* margin: 100px; */
         box-sizing: border-box;
         overflow: visible;
       }
@@ -98,29 +87,18 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     if(this.currentView==="home"){
       return html`
-      <landing-page></landing-page>
+      <!-- <landing-page></landing-page> -->
       <!-- <about-page></about-page> -->
-      <!-- <project-page></project-page> -->
+      <project-page></project-page>
       <!-- <projects-view class="projects"></projects-view> -->
 
       `;
-    } else if(this.currentView==="project"){
-      return html`
-        <project-page></project-page>
-      `;
-    }
+    } 
 
   } 
 
   //changes currentview to project page when card is clicked
-  _handleItemClick(event){
-    // console.log(event.detail.currentView);
-    if(event.detail.currentView){
-      this.currentView=event.detail.currentView;
-      // this.requestUpdate();
-    }
 
-  }
 
   /**
    * haxProperties integration via file reference

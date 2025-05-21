@@ -91,7 +91,6 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
         height: 300px;
         width: 300px;
         border-radius: 50%;
-        /* overflow: hidden; */
         object-fit: cover;
       }
       h1{
@@ -106,7 +105,7 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
         line-height: 150%;
       }
 
-      .socials p{
+      a.social-link{
         color: white;
         opacity: 0.9;
         font-weight: 700;
@@ -123,7 +122,7 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
 
       }
 
-      @media (max-width: 575.98px) {
+      @media (max-width: 999.98px) {
         .hero {
           flex-direction: column;
           gap: 20px;
@@ -155,14 +154,15 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
 
       .socials{
         margin-bottom: 5px;
-        /* flex-wrap: wrap; */
         flex-direction: column;
         gap: 10px;
       }
 
-      .links p{
+      a.social-link{
         font-size: 16px;
+
       }
+      
     }
 
 
@@ -189,11 +189,22 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
     </div>
     <div class="links">
       <div class="socials">
-        <p>LinkedIn</p>
-        <p>Github</p>
-        <p>Instagram</p>
-        <p>Facebook</p>
-        <p>mortiz.doe@gmail.com</p>
+        <a href="https://google.com" class="social-link" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>        
+        <a href="https://google.com" class="social-link" target="_blank" rel="noopener noreferrer">
+          Github
+        </a>        
+        <a href="https://google.com" class="social-link" target="_blank" rel="noopener noreferrer">
+         Instagram
+        </a>        
+        <a href="https://google.com" class="social-link" target="_blank" rel="noopener noreferrer">
+         Facebook
+        </a>        
+        <a href="https://google.com" class="social-link" target="_blank" rel="noopener noreferrer">
+          mortiz.doe@gmail.com
+        </a>        
+
       </div>
       
 
@@ -207,11 +218,6 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
 `;
   }
 
-  getThumbnailUrl(){
-    let url=new URL(`/lib/thumbnails/${this.thumbnail}`, import.meta.url)
-    return url;
-    
-  }
 
   /**
    * haxProperties integration via file reference

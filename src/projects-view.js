@@ -58,32 +58,23 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        
-        /* min-width: 400px; */
-        /* height: auto; */
-
-        /* margin: var(--page-padding); */
-        width: 100%;
-
       }
       *{
         box-sizing: border-box;
       }
-
+      button {
+        all: unset;
+        cursor: pointer;
+      }
 
       .container-background{
         margin: auto;
         max-width: var(--max-width); 
         background-color: var(--bg-color);
-        /* background-color: gray; */
-        /* overflow: hidden; */
+
         width: 100%;
         padding: var(--page-padding);
         min-height: 100vh;
-
-
-
-    
       }
       .projects-header{
         display: flex;
@@ -148,6 +139,8 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
 
         }
         .container-background{
+          padding: var(--mobile-page-padding);
+
         }
       }
 
@@ -163,13 +156,13 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
 
     <div class="latest-projects">LATEST PROJECTS</div>
     <div class="filters">
-      <div class="filter active" name="all" @click="${this.updateFilter}">All</div>
+      <button class="filter active" name="all" @click="${this.updateFilter}">All</button>
       
         <!-- print filters -->
       ${Array.from(this.filtersList).map((filter) => html`
-        <div @click="${this.updateFilter}" type="checkbox" name="${filter}"  class="filter"> 
+        <button @click="${this.updateFilter}" type="checkbox" name="${filter}"  class="filter"> 
           ${this.capitalizeWords(filter)} 
-        </div>
+      </button>
       `)}
 
     </div>
@@ -186,41 +179,7 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
     </div> 
 </div> 
 
-`;
-//   render() {
-//     return html`
-          
-// <div class = "container-background">
-//   <div class="projects-header">
-
-//     <div class="latest-projects">LATEST PROJECTS</div>
-//     <div class="filters">
-//       <div class="filter active" name="all" @click="${this.updateFilter}">All</div>
-      
-//         <!-- print filters -->
-//       ${Array.from(this.filtersList).map((filter) => html`
-//         <div @click="${this.updateFilter}" type="checkbox" name="${filter}"  class="filter"> 
-//           ${this.capitalizeWords(filter)} 
-//         </div>
-//       `)}
-
-//     </div>
-
-//   </div>
-
-//   <div class="card-container">
-
-//     ${this.filteredData.map((item)=>{ return html`
-//         <item-card class="card" 
-//         title="${item.title}" 
-//         thumbnail=${item.thumbnail}>
-//       </item-card>
-//       `})}
-//   </div>
-// </div>  
-
-// `;
-  }
+`;}
 
   capitalizeWords(sentence) {
     return sentence
@@ -254,22 +213,10 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
 
   }
     //update currentView to project when card is clicked
-  _handleClick() {
-    const event = new CustomEvent('item-click', {
-      detail: { message: 'card clicked!', currentView: "project"  },
-      bubbles: true,   // Makes the event bubble up to the parent
-      composed: true,  // Allows the event to pass through shadow DOM boundaries
-    });
-    // console.log(event);
-    
-    this.dispatchEvent(event);  // Dispatch the event
-  }
+
   
 
-  getThumbnailUrl(){
-    let url=new URL(`/lib/thumbnails/${this.thumbnail}`, import.meta.url)
-    return url;
-  }
+
   firstUpdated(){
     super.firstUpdated();
     this.fetchData();

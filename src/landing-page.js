@@ -137,6 +137,9 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
         font-size: 40px;
         
       }
+      .wrapper{
+        padding: var(--mobile-page-padding);
+      }
       
      }
 
@@ -164,7 +167,6 @@ export class LandingPage extends DDDSuper(I18NMixin(LitElement)) {
   </div>
 </div>
 <projects-view class="projects"></projects-view>
-
 
 `;
   }
