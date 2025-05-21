@@ -10,7 +10,7 @@ import { HeaderBar } from "./src/header-bar";
 import { ProjectPage } from "./src/project-page";
 import { LandingPage } from "./src/landing-page";
 import { ProjectsView } from "./src/projects-view";
-import { AboutPage } from "./src/about-page";
+import { GlossyPortfolioAbout } from "./src/glossy-portfolio-about";
 /**
  * `glossy-portfolio`
  * 
@@ -88,7 +88,7 @@ export class GlossyPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     if(this.currentView==="home"){
       return html`
       <!-- <landing-page></landing-page> -->
-      <!-- <about-page></about-page> -->
+      <!-- <glossy-portfolio-about></glossy-portfolio-about> -->
       <project-page></project-page>
       <!-- <projects-view class="projects"></projects-view> -->
 

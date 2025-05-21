@@ -7,15 +7,15 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `about-page`
+ * `glossy-portfolio-about`
  * 
  * @demo index.html
- * @element about-page
+ * @element glossy-portfolio-about
  */
-export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
+export class GlossyPortfolioAbout extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "about-page";
+    return "glossy-portfolio-about";
   }
 
   constructor() {
@@ -228,4 +228,4 @@ export class AboutPage extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(AboutPage.tag, AboutPage);
+globalThis.customElements.define(GlossyPortfolioAbout.tag, GlossyPortfolioAbout);
