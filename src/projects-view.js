@@ -121,7 +121,7 @@ export class ProjectsView extends DDDSuper(I18NMixin(LitElement)) {
 
 
       h3 span {
-        font-size: var(--graphic-portfolio-label-font-size, var(--ddd-font-size-s));
+        font-size: var(--glossy-portfolio-label-font-size, var(--ddd-font-size-s));
       }
       .filter.active {
         font-weight: bold;

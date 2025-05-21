@@ -1,13 +1,13 @@
 import { html, fixture, expect } from '@open-wc/testing';
-import "../graphic-portfolio.js";
+import "../glossy-portfolio.js";
 
 describe("GraphicPortfolio test", () => {
   let element;
   beforeEach(async () => {
     element = await fixture(html`
-      <graphic-portfolio
+      <glossy-portfolio
         title="title"
-      ></graphic-portfolio>
+      ></glossy-portfolio>
     `);
   });
 

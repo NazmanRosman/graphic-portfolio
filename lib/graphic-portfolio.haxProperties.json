@@ -11,7 +11,7 @@
         "designTreatment": false
     },
     "gizmo": {
-        "title": "graphic-portfolio",
+        "title": "glossy-portfolio",
         "description": "",
         "icon": "icons:android",
         "color": "purple",
@@ -41,7 +41,7 @@
     },
     "demoSchema": [
         {
-            "tag": "graphic-portfolio",
+            "tag": "glossy-portfolio",
             "properties": {
               "title": "Sample property title"
             },

@@ -12,15 +12,15 @@ import { LandingPage } from "./src/landing-page";
 import { ProjectsView } from "./src/projects-view";
 import { AboutPage } from "./src/about-page";
 /**
- * `graphic-portfolio`
+ * `glossy-portfolio`
  * 
  * @demo index.html
- * @element graphic-portfolio
+ * @element glossy-portfolio
  */
-export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
+export class GlossyPortfolio extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "graphic-portfolio";
+    return "glossy-portfolio";
   }
 
   constructor() {
@@ -37,7 +37,7 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
     this.registerLocalization({
       context: this,
       localesPath:
-        new URL("./locales/graphic-portfolio.ar.json", import.meta.url).href +
+        new URL("./locales/glossy-portfolio.ar.json", import.meta.url).href +
         "/../",
       locales: ["ar", "es", "hi", "zh"],
     });
@@ -109,4 +109,4 @@ export class GraphicPortfolio extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(GraphicPortfolio.tag, GraphicPortfolio);
+globalThis.customElements.define(GlossyPortfolio.tag, GlossyPortfolio);

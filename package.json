@@ -1,7 +1,7 @@
 {
-    "name": "@HAX/graphic-portfolio",
+    "name": "@HAX/glossy-portfolio",
     "version": "0.0.0",
-    "description": "Webcomponent graphic-portfolio following hax / open-wc recommendations",
+    "description": "Webcomponent glossy-portfolio following hax / open-wc recommendations",
     "license": "Apache-2.0",
     "author": {
       "name": "NazmanRosman"
@@ -13,11 +13,11 @@
     ],
     "repository": {
       "type": "git",
-      "url": "https://github.com/NazmanRosman/graphic-portfolio"
+      "url": "https://github.com/NazmanRosman/glossy-portfolio"
     },
     "type": "module",
-    "main": "graphic-portfolio.js",
-    "module": "graphic-portfolio.js",
+    "main": "glossy-portfolio.js",
+    "module": "glossy-portfolio.js",
     "scripts": {
       "start": "web-dev-server",
       "build": "rimraf public && rollup -c rollup.config.js && npm run analyze",
