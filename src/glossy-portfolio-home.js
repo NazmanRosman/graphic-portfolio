@@ -92,7 +92,7 @@ export class GlossyPortflioHome extends DDDSuper(I18NMixin(LitElement)) {
         font-family: "Inter", "Inter Placeholder", sans-serif;
         font-size: 50px;
         font-weight: 600;
-        color: var(--main-bg-color);
+        color: white;
         
         position: fixed;
         top: 50%;

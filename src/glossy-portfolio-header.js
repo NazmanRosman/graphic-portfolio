@@ -118,6 +118,7 @@ export class GlossyPortfolioHeader extends DDDSuper(I18NMixin(LitElement)) {
       }
       a{
         all: unset;
+        color: white;
       }
       button{
         all: unset;
@@ -137,6 +138,9 @@ export class GlossyPortfolioHeader extends DDDSuper(I18NMixin(LitElement)) {
         .container{
           flex-wrap: wrap;
           height: auto;
+        }
+        .container.active{
+          padding: 15px 0 0 0;
         }
         .nav-links.active{
           display: flex;
@@ -173,6 +177,7 @@ export class GlossyPortfolioHeader extends DDDSuper(I18NMixin(LitElement)) {
           /* background-color:blue; */
           text-align: center; /* Centers the text horizontally */
           height: 80px;
+          
         }
 
         a.right-side-item:active, a.right-side-item:hover{
@@ -201,8 +206,10 @@ export class GlossyPortfolioHeader extends DDDSuper(I18NMixin(LitElement)) {
 
 openHamburger(){
   const navLinks = this.renderRoot.querySelector('.nav-links');
+  const container = this.renderRoot.querySelector('.container');
   navLinks.classList.toggle('active');
-  console.log(navLinks.classList);
+  container.classList.toggle('active');
+  // console.log(navLinks.classList);
 }
 
   // Lit render the HTML

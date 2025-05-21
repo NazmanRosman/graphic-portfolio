@@ -58,6 +58,7 @@ export class GlossyPortflioGrid extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
+        color: white;
       }
       *{
         box-sizing: border-box;

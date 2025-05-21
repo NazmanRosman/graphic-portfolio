@@ -64,7 +64,7 @@ export class GlossyPortfolio extends DDDSuper(I18NMixin(LitElement)) {
         --max-width: 1200px;
         --page-padding: 0 25px;
         --mobile-page-padding: 0 15px;
-    
+        
     
       }
  
@@ -73,11 +73,11 @@ export class GlossyPortfolio extends DDDSuper(I18NMixin(LitElement)) {
         display: block;
         color: var(--ddd-theme-primary);
         background-color: var(--bg-color);
-        background-color: var(--bg-color);
         font-family: var(--main-font);
         margin: auto;
         box-sizing: border-box;
         overflow: visible;
+        min-height: 100vh;
       }
     `];
   }

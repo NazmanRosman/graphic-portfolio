@@ -80,7 +80,7 @@ export class GlossyPortflioPage extends DDDSuper(I18NMixin(LitElement)) {
         margin: 0 auto ;
         padding: var(--page-padding);
         padding-top: 130px;
-
+        color: white;
         /* overflow: visible; */
       }
 
@@ -90,13 +90,13 @@ export class GlossyPortflioPage extends DDDSuper(I18NMixin(LitElement)) {
       
       h2.project-title{
         margin: 0;
-        font-weight: 390;
+        font-weight: 500;
         font-size: var(--project-title-font-size);
       }
 
       h1.project-header{
         margin: 40px 0;
-        font-weight: 300;
+        font-weight: 400;
         font-size: var(--project-header-font-size);
 
       }

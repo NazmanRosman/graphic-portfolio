@@ -54,7 +54,8 @@ export class GlossyPortfolioAbout extends DDDSuper(I18NMixin(LitElement)) {
         --project-header-font-size: 64px;
         --body-font-size: 20px;
         font-size: var(--body-font-size);
-        
+        background-color: var(--bg-color);
+
       }
       *{
         box-sizing: border-box;
@@ -78,6 +79,7 @@ export class GlossyPortfolioAbout extends DDDSuper(I18NMixin(LitElement)) {
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        background-color: var(--bg-color);
         
         gap: 50px;
         
@@ -85,6 +87,7 @@ export class GlossyPortfolioAbout extends DDDSuper(I18NMixin(LitElement)) {
       .text{
         display: flex;
         flex-direction: column;
+        color: white;
       }
 
       img{
